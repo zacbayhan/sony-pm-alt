@@ -164,6 +164,7 @@ class Responder(Thread):
                               "--port", "ptpip:{}".format(addr[0])] + \
                              GPHOTO_ARGS
                 L.debug("Executing: {}".format(gphoto_cmd))
+                time.sleep(5)
                 PROC = subprocess.Popen(gphoto_cmd)
           L.debug("----------------------")
           L.debug("  ")

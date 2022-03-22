@@ -15,7 +15,7 @@ NETWORK=host
 
 IMGDIR=/home/zack/Pictures/raw
 
-.PHONY: build_container get_guid
+.PHONY: build_container get_guid set_guid run_debug
 
 all: $(EXE) run_container
 
@@ -24,6 +24,10 @@ $(EXE): $(SOURCES)
 
 build_container:
 	docker build . -t $(DIMG):$(DIMGTAG)
+
+run_debug: build_container
+	docker run -it  --name=$(DIMG) --net=$(NETWORK) \
+		--rm  $(DIMG):$(DIMGTAG) /bin/bash
 
 get_guid:
 	echo "Set GUID COMMAND: sudo ./${EXE} -g ${GUID}"
