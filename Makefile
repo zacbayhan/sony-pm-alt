@@ -13,7 +13,7 @@ DIMG=sony-pm-alt
 DIMGTAG=latest
 NETWORK=host
 
-IMGDIR=/home/zack/Pictures/raw
+IMGDIR=$(HOME)/Pictures/raw
 
 .PHONY: build_container get_guid set_guid run_debug
 
